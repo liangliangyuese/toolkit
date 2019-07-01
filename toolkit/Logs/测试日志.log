@@ -1,0 +1,27 @@
+2019-01-19 16:40:23,925 - WARNING - warning message
+2019-02-19 16:40:23,925 - ERROR - error message
+2019-02-19 16:40:23,925 - CRITICAL - critical message
+2019-02-19 16:40:23,925 - WARNING - warning message
+2019-02-19 16:40:23,925 - ERROR - error message
+2019-02-19 16:40:23,925 - CRITICAL - critical message
+2019-02-20 16:41:16,913 - WARNING - warning message
+2019-02-20 16:41:16,914 - ERROR - error message
+2019-02-20 16:41:16,914 - CRITICAL - critical message
+2019-02-20 16:41:37,494 - WARNING - warning message
+2019-02-20 16:41:37,494 - ERROR - error message
+2019-02-20 16:41:37,495 - CRITICAL - critical message
+2019-02-20 16:41:38,772 - WARNING - warning message
+2019-02-20 16:41:38,772 - ERROR - error message
+2019-02-20 16:41:38,773 - CRITICAL - critical message
+2019-02-20 16:41:39,667 - WARNING - warning message
+2019-02-20 16:41:39,667 - ERROR - error message
+2019-02-20 16:41:39,667 - CRITICAL - critical message
+2019-02-20 16:41:40,766 - WARNING - warning message
+2019-02-20 16:41:40,766 - ERROR - error message
+2019-02-20 16:41:40,766 - CRITICAL - critical message
+2019-02-20 16:42:52,995 - WARNING - log_text.py[:51] - warning message
+2019-02-20 16:42:52,995 - ERROR - log_text.py[:52] - error message
+2019-02-20 16:42:52,996 - CRITICAL - log_text.py[:53] - critical message
+2019-02-20 16:45:00,260 - WARNING - log_text.py[:51] - warning message
+2019-02-20 16:45:00,260 - ERROR - log_text.py[:52] - error message
+2019-02-20 16:45:00,260 - CRITICAL - log_text.py[:53] - critical message
