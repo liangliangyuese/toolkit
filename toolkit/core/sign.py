@@ -1,5 +1,7 @@
 # coding=utf-8
-import hashlib, time
+import time
+import hashlib
+
 
 def sign_id():
     """根据时间戳动态生成加密码

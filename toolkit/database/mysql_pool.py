@@ -59,8 +59,6 @@ class DatabaseExe(object):
         if self.conn is not None:
             self.conn.close()
 
+
 if __name__ == "__main__":
     conn = MysqlConn('spider', '127.0.0.1', 3306, 'root', '123456')
-    for i in range(10):
-        mysql = DatabaseExe(conn.getConn())
-        print(mysql)

@@ -1,11 +1,11 @@
 # coding=utf-8
 import sys, os, re, requests, time
 import urllib3
-from lxml import etree
+
+
 from spider.spider_rule import spider_re
 from spider.settings import random_agent
 from database.mysql_db import MysqlDb
-from function.decorator import method_examine
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)  # 禁用警告
 sys.path.append(os.path.split(os.path.abspath(os.path.dirname(__file__)))[0])
@@ -25,21 +25,20 @@ class Ip(MysqlDb):
         res = MysqlDb.insert(self, sql, data)
         return res
 
-    @method_examine
+
     def clear_ip(self, ip, port_number):
         """清除ip"""
         sql = "delete from ip where ip='{}' and port='{}'".format(ip, port_number)
         res = MysqlDb.delete_update(self, sql)
         return res
 
-    @method_examine
+
     def get_ip(self):
         """获取ip(从数据库中获取IP)"""
         sql = "select ip,port from ip order by id;"
         res = MysqlDb.select(self, sql)
         return res
 
-    @method_examine
     def ip_examine(self):  # IP检测，清除失效IP
         all_ip = self.get_ip()
         print("开始检测IP")
@@ -70,7 +69,7 @@ class IPSpider(Ip):
     def __init__(self):
         self.ip = Ip.__init__(self, "spider", "127.0.0.1", 3306)
 
-    @method_examine
+
     def kuaidaili(self):
         """快代理"""
         for i in range(1, 21):
@@ -82,7 +81,6 @@ class IPSpider(Ip):
                 Ip.save_ip(self, z[0], z[1])
             time.sleep(1)
 
-    @method_examine
     def zdaye(self):
         """站大爷
         """
@@ -105,7 +103,6 @@ class IPSpider(Ip):
             print(res)
             break
 
-    @method_examine
     def bajiuip(self):
         for i in range(1, 21):
             url = "http://www.89ip.cn/index_{}.html".format(i)
@@ -120,7 +117,6 @@ class IPSpider(Ip):
                 Ip.save_ip(self, z.strip(), x.strip())
             time.sleep(1)
 
-    @method_examine
     def wuuip(self):
         url = "http://www.data5u.com/free/gngn/index.shtml"
         rule = '<span><li>([0-9\.]*?)</li>.*?style="width: 100px;"><li class=.*?>(.*?)<'
@@ -129,7 +125,6 @@ class IPSpider(Ip):
             print(z)
             Ip.save_ip(self, z[0], z[1])
 
-    @method_examine
     def xici(self):
         url = "https://www.xicidaili.com/nn/"
         response = requests.get(url, headers=random_agent(), verify=False, timeout=10)
@@ -142,7 +137,6 @@ class IPSpider(Ip):
             print(z, x)
             Ip.save_ip(self, z.strip(), x.strip())
 
-    @method_examine
     def all_spider(self):
         self.kuaidaili()
         self.bajiuip()
