@@ -1,10 +1,6 @@
 # coding:utf-8
 import redis
-import sys
-import os
-
-sys.path.append(os.path.split(os.path.abspath(os.path.dirname(__file__)))[0])
-
+#
 
 class MyRedis(object):
     def __init__(self, db, host="127.0.0.1", port=6379, password='123456'):
@@ -29,9 +25,36 @@ class MyRedis(object):
         return self.redis_conn.dbsize()
 
 
+class RedisConn:
+    def __init__(self, db, host="127.0.0.1", port=6379, password='123456'):
+        self.pool = redis.ConnectionPool(host=host, port=port, decode_responses=True, password=password, db=db)
+
+    def get_conn(self):
+        return redis.StrictRedis(connection_pool=self.pool)
+
+
+class RedisExe:
+    def __init__(self, conn):
+        self.conn = conn
+
+    def all_key(self):
+        return self.conn.keys()
+
+    def insert(self, key, value):
+        return self.conn.set(key, value)
+
+    def key_over(self, key, time):
+        return self.conn.expire(key, time)
+
+    def search(self, key):
+        return self.conn.get(key)
+
+    def clear_key(self, key):
+        return self.conn.delete(key)
+
+    def count_key(self):
+        return self.conn.dbsize()
+
+
 if __name__ == "__main__":
-    a = MyRedis(2)
-    d = a.count_key()
-    s = 200
-    print(s - d)
-    print((s - d) / s)
+    print("具体使用用例可参考mysql")

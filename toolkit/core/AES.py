@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 import base64
 import time
-from Crypto.Cipher import AES
+# from Crypto.Cipher import AES
 
 t = int(time.time())
 
@@ -17,21 +17,20 @@ def add_str(text):
     return str.encode(text)  # 返回bytes
 
 
-def my_aes_encrypted(text):
-    key = "my_passwordKey16"  # 设置key 长度为16
-    aes = AES.new(add_str(key), AES.MODE_ECB)  # 传入key，选择加密模式
-    encrypted_text = str(base64.encodebytes(aes.encrypt(add_str(text))), encoding="utf-8").replace("\n", "")
-    print(encrypted_text)
-    return encrypted_text
+# def my_aes_encrypted(text):
+#     key = "my_passwordKey16"  # 设置key 长度为16
+#     aes = AES.new(add_str(key), AES.MODE_ECB)  # 传入key，选择加密模式
+#     encrypted_text = str(base64.encodebytes(aes.encrypt(add_str(text))), encoding="utf-8").replace("\n", "")
+#     print(encrypted_text)
+#     return encrypted_text
 
 
-def my_aes_decrypted(text):
-    key = "my_passwordKey16"
-    aes = AES.new(add_str(key), AES.MODE_ECB)
-    text_decrypted = str(aes.decrypt(base64.decodebytes(bytes(text, encoding='utf8'))).rstrip(b'\0').decode("utf8"))
-    print(text_decrypted)
-    return text_decrypted
+# def my_aes_decrypted(text):
+#     key = "my_passwordKey16"
+#     aes = AES.new(add_str(key), AES.MODE_ECB)
+#     text_decrypted = str(aes.decrypt(base64.decodebytes(bytes(text, encoding='utf8'))).rstrip(b'\0').decode("utf8"))
+#     print(text_decrypted)
+#     return text_decrypted
 
 
-a = my_aes_encrypted("一二三四五六1111111111")
-b = my_aes_decrypted(a)
+

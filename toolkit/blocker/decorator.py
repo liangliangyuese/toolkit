@@ -1,9 +1,5 @@
 # coding=utf-8
-import sys
-import os
 from functools import wraps
-sys.path.append(os.path.split(os.path.abspath(os.path.dirname(__file__)))[0])
-
 
 def method_examine(func):
     """函数检查器,当函数报错时打印错误
