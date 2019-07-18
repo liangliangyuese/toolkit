@@ -3,6 +3,8 @@ import pymongo
 
 
 class Mongodb(object):
+    # TODO 连接池
+    # TODO 增删改查功能尚未完善
     def __init__(self, database, collection, host="127.0.0.1", port=27017):
         self.conn = pymongo.MongoClient(host=host, port=port)
         self.db = self.conn[database]

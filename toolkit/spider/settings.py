@@ -1,10 +1,5 @@
 # coding:utf-8
 import random
-import datetime
-import sys
-import os
-
-sys.path.append(os.path.split(os.path.abspath(os.path.dirname(__file__)))[0])
 
 
 def random_agent():
@@ -22,19 +17,3 @@ def random_agent():
         'Connection': 'close',
         "User-Agent": random.sample(all_headers, 1)[0]}
     return headers
-
-
-def now_time():
-    # 这周一的日期
-    week_num = datetime.datetime.now().weekday()
-    now_monday = datetime.datetime.now() + datetime.timedelta(days=-week_num)
-    now_monday = str(now_monday)[0:10]
-    return now_monday
-
-
-def old_time():
-    # 上周一
-    week_num = datetime.datetime.now().weekday() + 7
-    yes_monday = datetime.datetime.now() + datetime.timedelta(days=-week_num)
-    yes_monday = str(yes_monday)[0:10]
-    return yes_monday
