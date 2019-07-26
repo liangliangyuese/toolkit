@@ -22,7 +22,6 @@ class MysqlDb(object):
             # 同时插入多组数据
             rows = self.cursor.executemany(insert_sql, params)
         self.conn.commit()
-        self.free()
         return rows
 
     def select(self, sql):
@@ -30,7 +29,6 @@ class MysqlDb(object):
         self.conn.ping(reconnect=True)
         self.cursor.execute(sql)
         result = self.cursor.fetchall()
-        self.free()
         return result
 
     def delete_update(self, sql):
@@ -38,7 +36,6 @@ class MysqlDb(object):
         self.conn.ping(reconnect=True)
         rows = self.cursor.execute(sql)
         self.conn.commit()
-        self.free()
         return rows
 
     def free(self):
