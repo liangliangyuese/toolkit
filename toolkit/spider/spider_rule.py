@@ -4,7 +4,7 @@ import sys
 import requests
 import re
 import urllib3
-from spider.settings import random_agent
+from toolkit.spider import random_agent
 from lxml import etree
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)

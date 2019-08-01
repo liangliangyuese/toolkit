@@ -3,9 +3,9 @@ import sys, os, re, requests, time
 import urllib3
 
 
-from spider.spider_rule import spider_re
-from spider.settings import random_agent
-from database.mysql_db import MysqlDb
+from toolkit.spider import spider_re
+from toolkit.spider import random_agent
+from toolkit.database import MysqlDb
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)  # 禁用警告
 sys.path.append(os.path.split(os.path.abspath(os.path.dirname(__file__)))[0])
