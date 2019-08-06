@@ -10,3 +10,4 @@ class Timer(object):
         # 获取本周是星期几
         week_num = datetime.datetime.now().weekday()
         return week_num
+print(datetime.datetime.now() + datetime.timedelta(days=-1))
