@@ -3,11 +3,15 @@ import datetime
 
 
 class Timer(object):
-    def target_time(self, int_):
+    @staticmethod
+    def target_time(int_):
         return datetime.datetime.now() + datetime.timedelta(days=int_)
 
-    def get_week(self):
+    @staticmethod
+    def get_week():
         # 获取本周是星期几
         week_num = datetime.datetime.now().weekday()
         return week_num
+
+
 print(datetime.datetime.now() + datetime.timedelta(days=-1))

@@ -1,5 +1,6 @@
 # coding=utf-8
 import time
+import rsa
 import hashlib
 
 
@@ -9,7 +10,6 @@ def sign_id():
     """
     # 时间戳
     t = int(time.time())
-
     key1 = "老夫聊发少年狂，左牵黄，右擎苍，锦帽貂裘,千骑卷平冈"
     key2 = "会挽雕弓如满月，西北望，射天狼"
     # 获取时间戳的倒数第三位 +1
