@@ -2,7 +2,10 @@
 import base64
 import time
 from Crypto.Cipher import AES
+
 t = int(time.time())
+
+
 # TODO Crypto库 安装有问题，待解决
 
 def add_str(text):
@@ -30,6 +33,3 @@ def my_aes_decrypted(text):
     text_decrypted = str(aes.decrypt(base64.decodebytes(bytes(text, encoding='utf8'))).rstrip(b'\0').decode("utf8"))
     print(text_decrypted)
     return text_decrypted
-
-
-

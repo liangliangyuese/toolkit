@@ -1,6 +1,5 @@
 # coding=utf-8
 import time
-import rsa
 import hashlib
 
 
@@ -20,3 +19,6 @@ def sign_id():
     # 加密全部为最小值
     m = hashlib.md5(data.encode(encoding="utf-8")).hexdigest().upper()
     return m
+
+
+

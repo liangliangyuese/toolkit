@@ -6,7 +6,6 @@ import os.path
 import datetime
 
 
-# suffix
 class MyLog:
     """when 是一个字符串的定义如下：
                     “S”: Seconds 秒
