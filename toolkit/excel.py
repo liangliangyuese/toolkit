@@ -3,7 +3,7 @@ import xlrd
 import xlwt
 
 
-def read_excel(place, sheet_number, method=None):
+def read_excel(place, sheet_number=0, method=None):
     # place excel文件位置
     # sheet_number读取指定sheet从0开始计数
     # row 行模式 返回每行的数据
@@ -46,5 +46,4 @@ def write_excel(sheet_name, place, data, method=None, ):
                 sheet.write(z, i, data[i][z])
     else:
         raise ValueError("请使用正确的参数 row or col")
-
     urls.save(place)
