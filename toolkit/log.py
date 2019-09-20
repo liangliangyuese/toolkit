@@ -7,25 +7,14 @@ import datetime
 
 
 class MyLog:
-    """when 是一个字符串的定义如下：
-                    “S”: Seconds 秒
-                    “M”: Minutes 分
-                    “H”: Hours 小时
-                    “D”: Days 天
-                    “W”: Week day (0=Monday)
-                    “midnight”: Roll over at midnight 每天
-                interval 等待单位时间后，logger自动重建文件
-                backupCount 保留日志文件个数-默认为0  不删除日志文件 """
-
     def __init__(self, log_name=None, level="WARNING", time_handle=False, time_handle_type="midnight", interval=1,
                  backup_count=7):
-        # 生成日志文件夹
         log_path = os.path.dirname(os.getcwd()) + '/Logs/'  # 获取文件所在目录
-        if not os.path.exists(log_path):
-            print('--生成日志文件夹--')
-            os.makedirs(log_path)
         if not log_name:
             raise ValueError("请使用正确日志名称")
+        if not os.path.exists(log_path):
+            print('不存在Logs文件夹-->生成日志文件夹')
+            os.makedirs(log_path)
         if level not in ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]:
             raise ValueError("请设置正确的输入日志等级--DEBUG，INFO，WARNING，ERROR，CRITICAL--")
         if time_handle_type not in ["S", "M", "H", "D", "W", "midnight"]:
@@ -33,6 +22,15 @@ class MyLog:
         self.logger = logging.getLogger(log_name)
         # 设置 日志名称
         log_name = log_path + log_name + datetime.datetime.now().strftime('%Y-%m-%d') + '.log'
+        """when 是一个字符串的定义如下：
+           “S”: Seconds 秒
+           “M”: Minutes 分
+           “H”: Hours 小时
+            “D”: Days 天
+            “W”: Week day (0=Monday)
+            “midnight”: Roll over at midnight 每天
+            interval 等待单位时间后，logger自动重建文件
+            backupCount 保留日志文件个数-默认为0  不删除日志文件 """
         if time_handle:
             # 记录日志至处理器(按照日期分割)
             log_handle = logging.handlers.TimedRotatingFileHandler(log_name, when=time_handle_type, interval=interval,

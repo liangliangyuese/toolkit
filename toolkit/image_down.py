@@ -8,7 +8,10 @@ os.makedirs("./image/", exist_ok=True)
 
 
 def image_down(url):
+    if "http" not in url:
+        url = "http:" + url
     img_name = uuid.uuid4()
     r = requests.get(url)
     with open("./image/" + str(img_name) + ".png", "wb") as f:
         f.write(r.content)
+    return os.getcwd() + "\\image\\" + str(img_name) + ".png"

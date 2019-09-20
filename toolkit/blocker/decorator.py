@@ -21,6 +21,4 @@ if __name__ == '__main__':
     @method_examine
     def a(aa):
         print(int(aa))
-
-
     a("sad")
